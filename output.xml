@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-01-20T11:41:17.960783" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Selenium" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation\test_selenium.robot">
+<test id="s1-t1" name="AmazonWebSite" line="8">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-20T11:41:18.188336" level="INFO">Opening browser 'chrome' to base url 'www.amazon.com/'.</msg>
+<msg time="2026-01-20T11:41:23.636987" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-20T11:41:23.637376" level="FAIL">InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=143.0.7499.193)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff77e3f88d5
+	0x7ff77e3f8930
+	0x7ff77e1d1465
+	0x7ff77e1bdf88
+	0x7ff77e1bc3d4
+	0x7ff77e1bc9f2
+	0x7ff77e1d5950
+	0x7ff77e27bad4
+	0x7ff77e251fda
+	0x7ff77e27ac97
+	0x7ff77e21ac29
+	0x7ff77e21ba93
+	0x7ff77e710620
+	0x7ff77e70af60
+	0x7ff77e7296c6
+	0x7ff77e415dd4
+	0x7ff77e41ed7c
+	0x7ff77e401ff4
+	0x7ff77e4021a5
+	0x7ff77e3e7ed2
+	0x7ffae52ee8d7
+	0x7ffae600c53c
+</msg>
+<arg>www.amazon.com/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2026-01-20T11:41:18.188049" elapsed="5.456089">InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=143.0.7499.193)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff77e3f88d5
+	0x7ff77e3f8930
+	0x7ff77e1d1465
+	0x7ff77e1bdf88
+	0x7ff77e1bc3d4
+	0x7ff77e1bc9f2
+	0x7ff77e1d5950
+	0x7ff77e27bad4
+	0x7ff77e251fda
+	0x7ff77e27ac97
+	0x7ff77e21ac29
+	0x7ff77e21ba93
+	0x7ff77e710620
+	0x7ff77e70af60
+	0x7ff77e7296c6
+	0x7ff77e415dd4
+	0x7ff77e41ed7c
+	0x7ff77e401ff4
+	0x7ff77e4021a5
+	0x7ff77e3e7ed2
+	0x7ffae52ee8d7
+	0x7ffae600c53c
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-01-20T11:41:23.645653" elapsed="0.000115"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2026-01-20T11:41:23.650957" elapsed="0.000090"/>
+</kw>
+<status status="FAIL" start="2026-01-20T11:41:18.186648" elapsed="5.464919">InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=143.0.7499.193)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff77e3f88d5
+	0x7ff77e3f8930
+	0x7ff77e1d1465
+	0x7ff77e1bdf88
+	0x7ff77e1bc3d4
+	0x7ff77e1bc9f2
+	0x7ff77e1d5950
+	0x7ff77e27bad4
+	0x7ff77e251fda
+	0x7ff77e27ac97
+	0x7ff77e21ac29
+	0x7ff77e21ba93
+	0x7ff77e710620
+	0x7ff77e70af60
+	0x7ff77e7296c6
+	0x7ff77e415dd4
+	0x7ff77e41ed7c
+	0x7ff77e401ff4
+	0x7ff77e4021a5
+	0x7ff77e3e7ed2
+	0x7ffae52ee8d7
+	0x7ffae600c53c
+</status>
+</test>
+<status status="FAIL" start="2026-01-20T11:41:17.962569" elapsed="5.696488"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Selenium" id="s1" pass="0" fail="1" skip="0">Test Selenium</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

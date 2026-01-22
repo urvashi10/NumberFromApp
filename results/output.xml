@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-01-22T10:47:45.177102" rpa="false" schemaversion="5">
+<suite id="s1" name="RobotFrameworks" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks">
+<suite id="s1-s1" name="Automation Admin" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation admin">
+<suite id="s1-s1-s1" name="AddAgent" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation admin\AddAgent.robot">
+<kw name="Login and Navigate to Dashboard" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-22T10:47:45.438654" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001E7A0156A50&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-22T10:47:45.437899" elapsed="0.000965"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-01-22T10:47:45.440352" level="INFO">${prefs} = {'credentials_enable_service': False, 'password_manager_enabled': False, 'profile.password_manager_leak_detection': False}</msg>
+<var>${prefs}</var>
+<arg>credentials_enable_service=${False}</arg>
+<arg>password_manager_enabled=${False}</arg>
+<arg>profile.password_manager_leak_detection=${False}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-01-22T10:47:45.439136" elapsed="0.001514"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-22T10:47:45.440910" elapsed="0.000542"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-22T10:47:45.441630" elapsed="0.000390"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:45.442586" level="INFO">Opening browser 'Chrome' to base url 'http://18.134.97.4/admin'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-22T10:47:45.442218" elapsed="5.904174"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-01-22T10:47:51.346859" elapsed="0.067880"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-01-22T10:47:51.415136" elapsed="0.002177"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:51.418226" level="INFO">Typing text 'Admin123@yopmail.com' into text field 'xpath://input[@type='email' or @name='email']'.</msg>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>${USER_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:51.417601" elapsed="0.181879"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:51.600631" level="INFO">Typing password into text field 'xpath://input[@type='password']'.</msg>
+<msg time="2026-01-22T10:47:51.663531" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOGIN_PASS_FIELD}</arg>
+<arg>${USER_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:51.599860" elapsed="0.120286"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:51.721000" level="INFO">Clicking element 'xpath://button[@type='submit']'.</msg>
+<arg>${LOGIN_SUBMIT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:51.720440" elapsed="0.091945"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-22T10:47:51.812744" elapsed="0.733356"/>
+</kw>
+<doc>Configures Chrome to bypass 'Compromised Password' alerts and logs in.</doc>
+<status status="PASS" start="2026-01-22T10:47:45.436943" elapsed="7.109530"/>
+</kw>
+<test id="s1-s1-s1-t1" name="TC01: Navigate to Master Agent Management" line="61">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MASTER_AGENT_TAB}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.553144" elapsed="0.036083"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:52.590336" level="INFO">Clicking element 'xpath://*[@id="root"]/div/aside/ul/li[2]/a'.</msg>
+<arg>${MASTER_AGENT_TAB}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.589753" elapsed="0.125847"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Master Agent Management</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.716129" elapsed="0.021291"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:52.758392" level="INFO">Element 'css:input.form-control[placeholder='Search By User Name']' is displayed.</msg>
+<arg>${SEARCH_INPUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.737767" elapsed="0.021049"/>
+</kw>
+<doc>Uses the specific sidebar XPath to reach the management screen.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.546747" elapsed="0.212556"/>
+</test>
+<test id="s1-s1-s1-t2" name="TC02: Add New Agent and Verify" line="68">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_AGENT_BTN}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.766180" elapsed="0.026662"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:52.793593" level="INFO">Clicking element 'xpath://button[@data-bs-target='#addAgentModal']'.</msg>
+<arg>${ADD_AGENT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.793174" elapsed="0.145307"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_FULL_NAME}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.938921" elapsed="0.020301"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-01-22T10:47:52.960134" level="INFO">${random_letters} = gqspKosX</msg>
+<var>${random_letters}</var>
+<arg>8</arg>
+<arg>[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.959527" elapsed="0.000934"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-01-22T10:47:52.961088" level="INFO">${random_num} = 1597</msg>
+<var>${random_num}</var>
+<arg>4</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.960710" elapsed="0.000561"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-22T10:47:52.962433" level="INFO">${AGENT_NAME} = RobotAgentgqspKosX</msg>
+<var>${AGENT_NAME}</var>
+<arg>RobotAgent${random_letters}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.961587" elapsed="0.001038"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-22T10:47:52.963424" level="INFO">${AGENT_EMAIL} = test_1597@yopmail.com</msg>
+<var>${AGENT_EMAIL}</var>
+<arg>test_${random_num}@yopmail.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.962872" elapsed="0.000802"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:52.964274" level="INFO">Typing text 'RobotAgentgqspKosX' into text field 'xpath://label[contains(text(), 'Full Name')]/following-sibling::input'.</msg>
+<arg>${INPUT_FULL_NAME}</arg>
+<arg>${AGENT_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.963897" elapsed="0.120918"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:53.085517" level="INFO">Typing text 'test_1597@yopmail.com' into text field 'xpath://label[contains(text(), 'Email Address')]/following-sibling::input'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${AGENT_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:53.085100" elapsed="0.141277"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:53.227033" level="INFO">Typing password into text field 'xpath://label[contains(text(), 'Password')]/following-sibling::input'.</msg>
+<msg time="2026-01-22T10:47:53.263935" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_PASSWORD}</arg>
+<arg>Admin@12345678</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:53.226622" elapsed="0.103989"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${SELECT_COUNTRY}</arg>
+<arg>India</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-01-22T10:47:53.330871" elapsed="0.026676"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:53.358153" level="INFO">Selecting options from selection list 'xpath://label[contains(text(), 'Country')]/following-sibling::select' by index 1.</msg>
+<arg>${SELECT_COUNTRY}</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2026-01-22T10:47:53.357788" elapsed="0.103295"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-22T10:47:56.462028" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-22T10:47:53.461320" elapsed="3.001219"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:56.463256" level="INFO">Selecting options from selection list 'xpath://label[contains(text(), 'State')]/following-sibling::select' by index 1.</msg>
+<arg>${SELECT_STATE}</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2026-01-22T10:47:56.462831" elapsed="0.079023"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:56.542750" level="INFO">Executing JavaScript:
+document.evaluate("//button[contains(text(), 'Create Agent')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//button[contains(text(), 'Create Agent')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-01-22T10:47:56.542177" elapsed="0.010386"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${CREATE_AGENT_BTN}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2026-01-22T10:47:56.553794" elapsed="10.710777"/>
+</kw>
+<msg time="2026-01-22T10:48:07.264884" level="INFO">${modal_closed} = True</msg>
+<var>${modal_closed}</var>
+<arg>Wait Until Element Is Not Visible</arg>
+<arg>${CREATE_AGENT_BTN}</arg>
+<arg>timeout=15s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-22T10:47:56.553033" elapsed="10.712058"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${modal_closed}">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<var>${err}</var>
+<arg>Get Text</arg>
+<arg>${ERROR_TEXT}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2026-01-22T10:48:07.265896" elapsed="0.000195"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[MODAL ERROR]: ${err}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-01-22T10:48:07.266351" elapsed="0.000174"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<arg>Create Agent modal did not close. Validation Error: ${err}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2026-01-22T10:48:07.266754" elapsed="0.000167"/>
+</kw>
+<status status="NOT RUN" start="2026-01-22T10:48:07.265381" elapsed="0.001685"/>
+</branch>
+<status status="PASS" start="2026-01-22T10:48:07.265325" elapsed="0.001854"/>
+</if>
+<kw name="Clear Search Field">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEARCH_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:48:07.267936" elapsed="0.032370"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:48:07.301242" level="INFO">Sending key(s) ('RETURN',) to css:input.form-control[placeholder='Search By User Name'] element.</msg>
+<msg time="2026-01-22T10:48:07.582071" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2026-01-22T10:48:07.582396" level="INFO">Releasing special key RETURN.</msg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-01-22T10:48:07.300562" elapsed="0.291134"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-22T10:48:08.593074" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-22T10:48:07.591935" elapsed="1.001444"/>
+</kw>
+<status status="PASS" start="2026-01-22T10:48:07.267432" elapsed="1.326128"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:48:08.594286" level="INFO">Typing text 'RobotAgentgqspKosX' into text field 'css:input.form-control[placeholder='Search By User Name']'.</msg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${AGENT_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:48:08.593731" elapsed="0.089194"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:48:08.684237" level="INFO">Sending key(s) ('RETURN',) to css:input.form-control[placeholder='Search By User Name'] element.</msg>
+<msg time="2026-01-22T10:48:08.961395" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2026-01-22T10:48:08.961630" level="INFO">Releasing special key RETURN.</msg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-01-22T10:48:08.683298" elapsed="0.284962"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${TABLE}</arg>
+<arg>${AGENT_NAME}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-01-22T10:48:08.968496" elapsed="0.038838"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:48:09.040852" level="INFO">Element 'css:table.table' contains text 'test_1597@yopmail.com'.</msg>
+<arg>${TABLE}</arg>
+<arg>${AGENT_EMAIL}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-01-22T10:48:09.007692" elapsed="0.033534"/>
+</kw>
+<doc>Generates alphabetic-only name, fills modal, and verifies record creation.</doc>
+<status status="PASS" start="2026-01-22T10:47:52.762473" elapsed="16.279000"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-01-22T10:48:09.043567" elapsed="2.209698"/>
+</kw>
+<status status="PASS" start="2026-01-22T10:47:45.223937" elapsed="26.029590"/>
+</suite>
+<status status="PASS" start="2026-01-22T10:47:45.221269" elapsed="26.034466"/>
+</suite>
+<status status="PASS" start="2026-01-22T10:47:45.182778" elapsed="26.074482"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="RobotFrameworks" id="s1" pass="2" fail="0" skip="0">RobotFrameworks</stat>
+<stat name="Automation Admin" id="s1-s1" pass="2" fail="0" skip="0">RobotFrameworks.Automation Admin</stat>
+<stat name="AddAgent" id="s1-s1-s1" pass="2" fail="0" skip="0">RobotFrameworks.Automation Admin.AddAgent</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
