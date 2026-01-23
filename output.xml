@@ -1,115 +1,236 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-01-20T11:41:17.960783" rpa="false" schemaversion="5">
-<suite id="s1" name="Test Selenium" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation\test_selenium.robot">
-<test id="s1-t1" name="AmazonWebSite" line="8">
+<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-01-23T13:59:07.596789" rpa="false" schemaversion="5">
+<suite id="s1" name="VerifyAgentUI" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation\VerifyAgentUI.robot">
+<kw name="Login Once As Agent" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-23T13:59:07.889202" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001F76CD56CF0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-23T13:59:07.888650" elapsed="0.000601"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-01-23T13:59:07.889984" level="INFO">${prefs} = {'credentials_enable_service': False, 'profile.password_manager_enabled': False, 'password_manager_leak_detection': False}</msg>
+<var>${prefs}</var>
+<arg>credentials_enable_service=${False}</arg>
+<arg>profile.password_manager_enabled=${False}</arg>
+<arg>password_manager_leak_detection=${False}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-01-23T13:59:07.889420" elapsed="0.000606"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-23T13:59:07.890152" elapsed="0.000312"/>
+</kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-01-20T11:41:18.188336" level="INFO">Opening browser 'chrome' to base url 'www.amazon.com/'.</msg>
-<msg time="2026-01-20T11:41:23.636987" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-20T11:41:23.637376" level="FAIL">InvalidArgumentException: Message: invalid argument
-  (Session info: chrome=143.0.7499.193)
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff77e3f88d5
-	0x7ff77e3f8930
-	0x7ff77e1d1465
-	0x7ff77e1bdf88
-	0x7ff77e1bc3d4
-	0x7ff77e1bc9f2
-	0x7ff77e1d5950
-	0x7ff77e27bad4
-	0x7ff77e251fda
-	0x7ff77e27ac97
-	0x7ff77e21ac29
-	0x7ff77e21ba93
-	0x7ff77e710620
-	0x7ff77e70af60
-	0x7ff77e7296c6
-	0x7ff77e415dd4
-	0x7ff77e41ed7c
-	0x7ff77e401ff4
-	0x7ff77e4021a5
-	0x7ff77e3e7ed2
-	0x7ffae52ee8d7
-	0x7ffae600c53c
-</msg>
-<arg>www.amazon.com/</arg>
+<msg time="2026-01-23T13:59:07.890856" level="INFO">Opening browser 'chrome' to base url 'http://18.134.97.4/'.</msg>
+<arg>${URL}</arg>
 <arg>chrome</arg>
+<arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="FAIL" start="2026-01-20T11:41:18.188049" elapsed="5.456089">InvalidArgumentException: Message: invalid argument
-  (Session info: chrome=143.0.7499.193)
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff77e3f88d5
-	0x7ff77e3f8930
-	0x7ff77e1d1465
-	0x7ff77e1bdf88
-	0x7ff77e1bc3d4
-	0x7ff77e1bc9f2
-	0x7ff77e1d5950
-	0x7ff77e27bad4
-	0x7ff77e251fda
-	0x7ff77e27ac97
-	0x7ff77e21ac29
-	0x7ff77e21ba93
-	0x7ff77e710620
-	0x7ff77e70af60
-	0x7ff77e7296c6
-	0x7ff77e415dd4
-	0x7ff77e41ed7c
-	0x7ff77e401ff4
-	0x7ff77e4021a5
-	0x7ff77e3e7ed2
-	0x7ffae52ee8d7
-	0x7ffae600c53c
-</status>
+<status status="PASS" start="2026-01-23T13:59:07.890611" elapsed="6.723189"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2026-01-20T11:41:23.645653" elapsed="0.000115"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-01-23T13:59:14.614095" elapsed="0.044198"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2026-01-20T11:41:23.650957" elapsed="0.000090"/>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-01-23T13:59:14.658602" elapsed="0.000618"/>
 </kw>
-<status status="FAIL" start="2026-01-20T11:41:18.186648" elapsed="5.464919">InvalidArgumentException: Message: invalid argument
-  (Session info: chrome=143.0.7499.193)
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff77e3f88d5
-	0x7ff77e3f8930
-	0x7ff77e1d1465
-	0x7ff77e1bdf88
-	0x7ff77e1bc3d4
-	0x7ff77e1bc9f2
-	0x7ff77e1d5950
-	0x7ff77e27bad4
-	0x7ff77e251fda
-	0x7ff77e27ac97
-	0x7ff77e21ac29
-	0x7ff77e21ba93
-	0x7ff77e710620
-	0x7ff77e70af60
-	0x7ff77e7296c6
-	0x7ff77e415dd4
-	0x7ff77e41ed7c
-	0x7ff77e401ff4
-	0x7ff77e4021a5
-	0x7ff77e3e7ed2
-	0x7ffae52ee8d7
-	0x7ffae600c53c
-</status>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:input[type='email']</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-23T13:59:14.659469" elapsed="0.232705"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:14.892666" level="INFO">Typing text 'testuser22@yopmail.com' into text field 'css:input[type='email']'.</msg>
+<arg>css:input[type='email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-23T13:59:14.892382" elapsed="0.423461"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:15.316299" level="INFO">Typing password into text field 'css:input[type='password']'.</msg>
+<msg time="2026-01-23T13:59:15.555086" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>css:input[type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-23T13:59:15.316035" elapsed="0.389790"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:15.706378" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>css:button[type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-23T13:59:15.706108" elapsed="0.620630"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Billing and Compensation</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-23T13:59:16.327011" elapsed="0.752575"/>
+</kw>
+<doc>The critical setup keyword.
+Ensure there are 4 SPACES before each command below.</doc>
+<status status="PASS" start="2026-01-23T13:59:07.887988" elapsed="9.191743"/>
+</kw>
+<test id="s1-t1" name="TC-01: Verify Page Layout and Main Header" line="22">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TITLE_BILLING}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.080561" elapsed="0.221183"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:17.521440" level="INFO">${style} = font-weight: 700; color: var(--accent);</msg>
+<var>${style}</var>
+<arg>${TITLE_BILLING}</arg>
+<arg>style</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.302145" elapsed="0.219393"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${style}</arg>
+<arg>font-weight: 700</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.521966" elapsed="0.000502"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.522879" elapsed="0.000372"/>
+</kw>
+<doc>Verifies the main heading exists and has correct weight.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.079830" elapsed="0.443616"/>
 </test>
-<status status="FAIL" start="2026-01-20T11:41:17.962569" elapsed="5.696488"/>
+<test id="s1-t2" name="TC-02: Verify KPI Section UI" line="28">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:17.635818" level="INFO">${count} = 4</msg>
+<var>${count}</var>
+<arg>${KPI_PANELS}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.524542" elapsed="0.111330"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-01-23T13:59:17.636620" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${count}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.636249" elapsed="0.000450"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:17.851558" level="INFO">Current page contains text 'Devices Online'.</msg>
+<arg>Devices Online</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.636999" elapsed="0.214761"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:18.068135" level="INFO">Current page contains text 'Total Earnings'.</msg>
+<arg>Total Earnings</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.852163" elapsed="0.216085"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.068697" elapsed="0.000312"/>
+</kw>
+<doc>Ensures exactly 4 KPI panels are displayed.</doc>
+<status status="PASS" start="2026-01-23T13:59:17.524087" elapsed="0.545121"/>
+</test>
+<test id="s1-t3" name="TC-03: Verify My Devices UI and Badges" line="35">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:18.290838" level="INFO">Element 'xpath://div[text()='My Devices']' is displayed.</msg>
+<arg>${SECTION_DEVICES}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.070415" elapsed="0.220543"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:18.402127" level="INFO">Current page contains element 'css:.badge.assigned-badge'.</msg>
+<arg>css:.badge.assigned-badge</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.291353" elapsed="0.110887"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:18.513548" level="INFO">Current page contains element 'css:.badge.success-badge'.</msg>
+<arg>css:.badge.success-badge</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.402605" elapsed="0.111070"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:18.625610" level="INFO">Current page contains element 'css:.badge.faulty-badge'.</msg>
+<arg>css:.badge.faulty-badge</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.514112" elapsed="0.111610"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.626219" elapsed="0.000347"/>
+</kw>
+<doc>Verifies device list and status badge rendering.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.069828" elapsed="0.556998"/>
+</test>
+<test id="s1-t4" name="TC-04: Verify Notification and Call Logs" line="43">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:18.849375" level="INFO">Element 'xpath://div[text()='Notification']' is displayed.</msg>
+<arg>${SECTION_NOTIF}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.627958" elapsed="0.221531"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:19.067207" level="INFO">Current page contains text '⚠️'.</msg>
+<arg>⚠️</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.849925" elapsed="0.217408"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-01-23T13:59:19.180007" level="INFO">${rows} = 5</msg>
+<var>${rows}</var>
+<arg>css:.call-row</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-01-23T13:59:19.067708" elapsed="0.112361"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-01-23T13:59:19.181156" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${rows}</arg>
+<arg>5</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-01-23T13:59:19.180568" elapsed="0.000703"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-01-23T13:59:19.181717" elapsed="0.000251"/>
+</kw>
+<doc>Checks for the warning alert and call log table rows.</doc>
+<status status="PASS" start="2026-01-23T13:59:18.627442" elapsed="0.554706"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-01-23T13:59:19.183182" elapsed="2.256440"/>
+</kw>
+<status status="PASS" start="2026-01-23T13:59:07.598385" elapsed="13.841325"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Test Selenium" id="s1" pass="0" fail="1" skip="0">Test Selenium</stat>
+<stat name="VerifyAgentUI" id="s1" pass="4" fail="0" skip="0">VerifyAgentUI</stat>
 </suite>
 </statistics>
 <errors>
