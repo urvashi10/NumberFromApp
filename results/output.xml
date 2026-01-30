@@ -1,25 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-01-23T14:35:51.033921" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-01-30T12:35:50.002393" rpa="false" schemaversion="5">
 <suite id="s1" name="RobotFrameworks" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks">
-<suite id="s1-s1" name="Automation Admin" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation admin">
-<suite id="s1-s1-s1" name="AdminDashboard" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation admin\AdminDashboard.robot">
-<kw name="Login Once As Admin" owner="resource" type="SETUP">
+<suite id="s1-s1" name="Automation" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation">
+<suite id="s1-s1-s1" name="DashboardAgent" source="C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation\DashboardAgent.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-01-30T12:35:50.413969" level="INFO">Starting test suite</msg>
+<arg>Starting test suite</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-30T12:35:50.413321" elapsed="0.001344"/>
+</kw>
+<test id="s1-s1-s1-t1" name="TC-01: Successful Login" line="27">
+<kw name="Initialize Chrome Driver And Login">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Initializing Chrome Driver...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T12:35:50.418942" elapsed="0.000622"/>
+</kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-01-23T14:35:51.287947" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000029482D81940&gt;</msg>
+<msg time="2026-01-30T12:35:50.557758" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2026-01-30T12:35:52.723517" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2026-01-30T12:35:53.453906" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2026-01-30T12:35:54.186393" level="INFO">Driver [C:\Users\Urvashi\.wdm\drivers\chromedriver\win64\144.0.7559.109\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2026-01-30T12:35:54.187366" level="INFO">${chrome_path} = C:\Users\Urvashi\.wdm\drivers\chromedriver\win64\144.0.7559.109\chromedriver-win32/chromedriver.exe</msg>
+<var>${chrome_path}</var>
+<arg>__import__('webdriver_manager.chrome').chrome.ChromeDriverManager().install()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-30T12:35:50.419826" elapsed="3.767994"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-30T12:35:54.190498" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x000001535D469BE0&gt;</msg>
+<var>${service}</var>
+<arg>__import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(r'${chrome_path}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-30T12:35:54.188318" elapsed="0.003071"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-30T12:35:54.193051" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001535D622CF0&gt;</msg>
 <var>${options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys, selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-01-23T14:35:51.287208" elapsed="0.000934"/>
+<status status="PASS" start="2026-01-30T12:35:54.191838" elapsed="0.001888"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-01-23T14:35:51.289159" level="INFO">${prefs} = {'credentials_enable_service': False, 'profile.password_manager_enabled': False, 'password_manager_leak_detection': False}</msg>
+<msg time="2026-01-30T12:35:54.195972" level="INFO">${prefs} = {'credentials_enable_service': False, 'profile.password_manager_enabled': False, 'password_manager_leak_detection': False}</msg>
 <var>${prefs}</var>
 <arg>credentials_enable_service=${False}</arg>
 <arg>profile.password_manager_enabled=${False}</arg>
 <arg>password_manager_leak_detection=${False}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-01-23T14:35:51.288390" elapsed="0.001162"/>
+<status status="PASS" start="2026-01-30T12:35:54.194165" elapsed="0.002404"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
@@ -27,167 +57,337 @@
 <arg>prefs</arg>
 <arg>${prefs}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2026-01-23T14:35:51.289789" elapsed="0.000818"/>
-</kw>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>--disable-save-password-bubble</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2026-01-23T14:35:51.290889" elapsed="0.000621"/>
+<status status="PASS" start="2026-01-30T12:35:54.197162" elapsed="0.000885"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-gpu</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2026-01-23T14:35:51.291758" elapsed="0.000592"/>
+<status status="PASS" start="2026-01-30T12:35:54.198408" elapsed="0.001312"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ChromeDriver initialized at: ${chrome_path}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T12:35:54.200243" elapsed="0.001304"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-01-23T14:35:51.293293" level="INFO">Opening browser 'chrome' to base url 'http://18.134.97.4/admin'.</msg>
-<arg>${LOGIN_URL}</arg>
+<msg time="2026-01-30T12:35:54.203230" level="INFO">Opening browser 'chrome' to base url 'http://18.134.97.4/'.</msg>
+<arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <arg>options=${options}</arg>
+<arg>service=${service}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-01-23T14:35:51.292697" elapsed="5.899495"/>
+<status status="PASS" start="2026-01-30T12:35:54.202065" elapsed="7.137429"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-01-23T14:35:57.192487" elapsed="0.039214"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>0.2 seconds</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2026-01-23T14:35:57.232045" elapsed="0.000608"/>
+<status status="PASS" start="2026-01-30T12:36:01.339893" elapsed="0.057665"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>css:input[type='email']</arg>
-<arg>timeout=15s</arg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-23T14:35:57.233001" elapsed="0.429209"/>
+<status status="PASS" start="2026-01-30T12:36:01.398035" elapsed="0.077512"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-23T14:35:57.662896" level="INFO">Typing text 'admin123@yopmail.com' into text field 'css:input[type='email']'.</msg>
-<arg>css:input[type='email']</arg>
-<arg>${ADMIN_USER}</arg>
+<msg time="2026-01-30T12:36:01.478392" level="INFO">Typing text 'testuser22@yopmail.com' into text field 'css:input[type='email']'.</msg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>${USER_NAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-23T14:35:57.662475" elapsed="0.726632"/>
+<status status="PASS" start="2026-01-30T12:36:01.477416" elapsed="0.216148"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-01-23T14:35:58.389768" level="INFO">Typing password into text field 'css:input[type='password']'.</msg>
-<msg time="2026-01-23T14:35:58.828934" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>css:input[type='password']</arg>
-<arg>${ADMIN_PASS}</arg>
+<msg time="2026-01-30T12:36:01.694942" level="INFO">Typing password into text field 'css:input[type='password']'.</msg>
+<msg time="2026-01-30T12:36:01.758527" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-23T14:35:58.389382" elapsed="0.691569"/>
+<status status="PASS" start="2026-01-30T12:36:01.694023" elapsed="0.169164"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-23T14:35:59.081573" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
-<arg>css:button[type='submit']</arg>
+<msg time="2026-01-30T12:36:01.863893" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-23T14:35:59.081198" elapsed="1.113858"/>
+<status status="PASS" start="2026-01-30T12:36:01.863467" elapsed="0.329935"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-23T14:36:03.195941" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-23T14:36:00.195309" elapsed="3.000971"/>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/agent-dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-01-30T12:36:02.193920" elapsed="1.253666"/>
 </kw>
-<kw name="Reload Page" owner="SeleniumLibrary">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2026-01-23T14:36:03.196580" elapsed="0.644309"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Login successful.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.447850" elapsed="0.000519"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-23T14:36:04.842044" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-23T14:36:03.841135" elapsed="1.001445"/>
+<doc>Initialize ChromeDriver and perform login.</doc>
+<status status="PASS" start="2026-01-30T12:35:50.418326" elapsed="13.030296"/>
 </kw>
-<kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2026-01-23T14:36:04.843544" level="INFO">Sending key(s) ('ESC',) to page.</msg>
-<msg time="2026-01-23T14:36:04.844056" level="INFO">Pressing special key ESCAPE to browser.</msg>
-<msg time="2026-01-23T14:36:04.844310" level="INFO">Releasing special key ESCAPE.</msg>
-<arg>None</arg>
-<arg>ESC</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2026-01-23T14:36:04.842924" elapsed="0.210192"/>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/agent-dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.448839" elapsed="0.006877"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Admin Dashboard</arg>
-<arg>timeout=20s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-01-23T14:36:05.053482" elapsed="0.214263"/>
+<doc>Verify user can log in.</doc>
+<status status="PASS" start="2026-01-30T12:35:50.415116" elapsed="13.040879"/>
+</test>
+<test id="s1-s1-s1-t2" name="TC-02: Dashboard Sidebar Highlight" line="33">
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:03.484480" level="INFO">${classes} = nav-link d-flex align-items-center active-link</msg>
+<var>${classes}</var>
+<arg>${DASHBOARD_NAV_LINK}</arg>
+<arg>class</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.461621" elapsed="0.023244"/>
 </kw>
-<doc>Logs into the admin panel and handles pop-ups.</doc>
-<status status="PASS" start="2026-01-23T14:35:51.286363" elapsed="13.981653"/>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${classes}</arg>
+<arg>active-link</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.485109" elapsed="0.000756"/>
 </kw>
-<test id="s1-s1-s1-t1" name="TC-01: Verify Successful Login and Dashboard Header" line="10">
+<doc>Verify the Dashboard tab is highlighted on the left.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.458457" elapsed="0.027646"/>
+</test>
+<test id="s1-s1-s1-t3" name="TC-03: Verify Billing and Compensation Header" line="38">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BILLING_COMP_HEADER}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.491203" elapsed="0.022078"/>
+</kw>
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2026-01-23T14:36:05.271161" level="INFO">Verifying element 'css:h5.ps-3' contains exact text 'Admin Dashboard'.</msg>
-<arg>css:h5.ps-3</arg>
-<arg>Admin Dashboard</arg>
+<msg time="2026-01-30T12:36:03.514553" level="INFO">Verifying element 'css:h5.d-none.d-lg-block.ps-3' contains exact text 'Billing and Compensation'.</msg>
+<arg>${BILLING_COMP_HEADER}</arg>
+<arg>Billing and Compensation</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2026-01-23T14:36:05.270573" elapsed="0.427684"/>
+<status status="PASS" start="2026-01-30T12:36:03.513729" elapsed="0.030696"/>
 </kw>
-<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
-<arg>Capture Page Screenshot</arg>
-<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-01-23T14:36:05.698655" elapsed="0.000474"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Verified: Header "Billing and Compensation" is correct.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.544683" elapsed="0.000484"/>
 </kw>
-<doc>Verify the user has landed on the Dashboard.</doc>
-<status status="PASS" start="2026-01-23T14:36:05.268164" elapsed="0.431107"/>
+<doc>Verify the header text exactly matches the requirement.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.488320" elapsed="0.057042"/>
 </test>
-<test id="s1-s1-s1-t2" name="TC-02: Verify KPI Stats Presence" line="14">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-01-23T14:36:06.120923" level="INFO">Current page contains text 'Total Active Devices'.</msg>
-<arg>Total Active Devices</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2026-01-23T14:36:05.703577" elapsed="0.417808"/>
+<test id="s1-s1-s1-t4" name="TC-04: Verify Additional Dashboard Sections" line="44">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MY_DEVICES_SEC}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.550251" elapsed="0.022847"/>
 </kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-01-23T14:36:06.558606" level="INFO">Current page contains text 'Active Agents'.</msg>
-<arg>Active Agents</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2026-01-23T14:36:06.121758" elapsed="0.437130"/>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:03.623100" level="INFO">Element 'xpath://*[contains(text(), 'My Devices')]' is displayed.</msg>
+<arg>${MY_DEVICES_SEC}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.573360" elapsed="0.051347"/>
 </kw>
-<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
-<arg>Capture Page Screenshot</arg>
-<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-01-23T14:36:06.559224" elapsed="0.000588"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RECENT_CALLS_SEC}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.625223" elapsed="0.036978"/>
 </kw>
-<doc>Verify that the data panels are rendered.</doc>
-<status status="PASS" start="2026-01-23T14:36:05.701287" elapsed="0.858684"/>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:03.679984" level="INFO">Element 'xpath://*[contains(text(), 'Recent Call Logs')]' is displayed.</msg>
+<arg>${RECENT_CALLS_SEC}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.662470" elapsed="0.017791"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Verified: "My Devices" and "Recent Call Logs" sections are visible.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.680488" elapsed="0.000794"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:03.779116" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="dashboard_sections.png"&gt;&lt;img src="dashboard_sections.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>dashboard_sections.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.681584" elapsed="0.098001"/>
+</kw>
+<doc>Verify "My Devices" and "Recent Call Logs" sections are present.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.547519" elapsed="0.232295"/>
 </test>
-<kw name="Safe Close Browser" owner="resource" type="TEARDOWN">
-<kw name="Delete All Cookies" owner="SeleniumLibrary">
-<doc>Deletes all cookies.</doc>
-<status status="PASS" start="2026-01-23T14:36:06.562668" elapsed="0.211699"/>
+<test id="s1-s1-s1-t5" name="TC-05: Negative Login Shows Error" line="57">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting negative login test...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.784445" elapsed="0.002806"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-30T12:36:03.787969" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2026-01-30T12:36:05.318921" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2026-01-30T12:36:06.257725" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2026-01-30T12:36:06.884255" level="INFO">Driver [C:\Users\Urvashi\.wdm\drivers\chromedriver\win64\144.0.7559.109\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2026-01-30T12:36:06.885030" level="INFO">${chrome_path} = C:\Users\Urvashi\.wdm\drivers\chromedriver\win64\144.0.7559.109\chromedriver-win32/chromedriver.exe</msg>
+<var>${chrome_path}</var>
+<arg>__import__('webdriver_manager.chrome').chrome.ChromeDriverManager().install()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.787457" elapsed="3.098062"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-30T12:36:06.887289" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x000001535D4FC050&gt;</msg>
+<var>${service}</var>
+<arg>__import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(r'${chrome_path}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-30T12:36:06.885906" elapsed="0.001655"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-30T12:36:06.888798" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001535D4FC2D0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-30T12:36:06.887923" elapsed="0.001249"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-01-30T12:36:06.890776" level="INFO">${prefs} = {'credentials_enable_service': False, 'profile.password_manager_enabled': False, 'password_manager_leak_detection': False}</msg>
+<var>${prefs}</var>
+<arg>credentials_enable_service=${False}</arg>
+<arg>profile.password_manager_enabled=${False}</arg>
+<arg>password_manager_leak_detection=${False}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-01-30T12:36:06.889522" elapsed="0.001554"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-30T12:36:06.891427" elapsed="0.000927"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-30T12:36:06.892671" elapsed="0.001237"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:06.894968" level="INFO">Opening browser 'chrome' to base url 'http://18.134.97.4/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<arg>service=${service}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-30T12:36:06.894313" elapsed="6.541429"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-01-30T12:36:13.436248" elapsed="0.048072"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T12:36:13.484703" elapsed="0.044239"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:13.530216" level="INFO">Typing text 'testuser22@yopmail.com' into text field 'css:input[type='email']'.</msg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>${USER_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T12:36:13.529420" elapsed="0.260132"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:13.790733" level="INFO">Typing password into text field 'css:input[type='password']'.</msg>
+<msg time="2026-01-30T12:36:13.841134" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>InvalidPass123</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T12:36:13.790020" elapsed="0.148762"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:13.939991" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T12:36:13.939260" elapsed="0.307608"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T12:36:16.248589" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T12:36:14.247262" elapsed="2.001680"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:16.256206" level="INFO">${loc} = http://18.134.97.4/</msg>
+<var>${loc}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-01-30T12:36:16.249209" elapsed="0.007195"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Current location after failed login: ${loc}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T12:36:16.256610" elapsed="0.000892"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${loc}</arg>
+<arg>/agent-dashboard</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2026-01-30T12:36:16.257862" elapsed="0.000673"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-01-30T12:36:16.807640" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="negative_login.png"&gt;&lt;img src="negative_login.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>negative_login.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-01-30T12:36:16.258752" elapsed="0.551754"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Negative login test passed - user stayed on login page</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T12:36:16.811023" elapsed="0.002753"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-01-23T14:36:06.774719" elapsed="2.360854"/>
+<status status="PASS" start="2026-01-30T12:36:16.814875" elapsed="2.237787"/>
 </kw>
-<doc>Closes the browser while trying to prevent the ProactorBasePipeTransport error.</doc>
-<status status="PASS" start="2026-01-23T14:36:06.562218" elapsed="2.573560"/>
+<doc>Verify that login with an invalid password does not redirect to the agent dashboard.</doc>
+<status status="PASS" start="2026-01-30T12:36:03.781854" elapsed="15.271087"/>
+</test>
+<kw name="Safe Suite Teardown" type="TEARDOWN">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T12:36:20.557683" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T12:36:19.055975" elapsed="1.503480"/>
 </kw>
-<status status="PASS" start="2026-01-23T14:35:51.084714" elapsed="18.051169"/>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-01-30T12:36:20.561346" elapsed="2.865624"/>
+</kw>
+<arg>Close All Browsers</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T12:36:20.559993" elapsed="2.867304"/>
+</kw>
+<doc>Safe cleanup of browser resources.</doc>
+<status status="PASS" start="2026-01-30T12:36:19.055511" elapsed="4.372154"/>
+</kw>
+<status status="PASS" start="2026-01-30T12:35:50.075716" elapsed="33.352089"/>
 </suite>
-<status status="PASS" start="2026-01-23T14:35:51.081803" elapsed="18.056029"/>
+<status status="PASS" start="2026-01-30T12:35:50.071851" elapsed="33.361212"/>
 </suite>
-<status status="PASS" start="2026-01-23T14:35:51.040269" elapsed="18.099429"/>
+<status status="PASS" start="2026-01-30T12:35:50.015628" elapsed="33.420876"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="RobotFrameworks" id="s1" pass="2" fail="0" skip="0">RobotFrameworks</stat>
-<stat name="Automation Admin" id="s1-s1" pass="2" fail="0" skip="0">RobotFrameworks.Automation Admin</stat>
-<stat name="AdminDashboard" id="s1-s1-s1" pass="2" fail="0" skip="0">RobotFrameworks.Automation Admin.AdminDashboard</stat>
+<stat name="RobotFrameworks" id="s1" pass="5" fail="0" skip="0">RobotFrameworks</stat>
+<stat name="Automation" id="s1-s1" pass="5" fail="0" skip="0">RobotFrameworks.Automation</stat>
+<stat name="DashboardAgent" id="s1-s1-s1" pass="5" fail="0" skip="0">RobotFrameworks.Automation.DashboardAgent</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2026-01-30T12:35:49.988623" level="ERROR">Error in file 'C:\Users\Urvashi\PycharmProjects\RobotFrameworks\automation admin\MasterAgentManagement.robot' on line 17: Creating keyword '' failed: User keyword name cannot be empty.</msg>
 </errors>
 </robot>

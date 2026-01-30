@@ -81,3 +81,4 @@ TC-06: Verify Specific Data Entry
     Sleep           1s
     # In your HTML, normal agent has 4 devices
     Element Should Contain    xpath://tr[contains(.,'agent123@yopmail.com')]/td[3]    4
+    # new file

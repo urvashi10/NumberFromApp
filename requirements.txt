@@ -4,3 +4,4 @@ PyYAML
 
 selenium
 chromedriver-autoinstaller
+webdriver-manager

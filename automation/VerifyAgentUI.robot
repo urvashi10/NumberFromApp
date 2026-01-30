@@ -20,10 +20,10 @@ ${DEVICE_ITEMS}        css:.device-item
 
 *** Test Cases ***
 TC-01: Verify Page Layout and Main Header
-    [Documentation]    Verifies the main heading exists and has correct weight.
-    Wait Until Element Is Visible    ${TITLE_BILLING}    timeout=15s
-    ${style}=    Get Element Attribute    ${TITLE_BILLING}    style
-    Should Contain    ${style}    font-weight: 700
+    [Documentation]        Verifies the main heading exists and has correct weight.
+    Wait Until Element Is Visible        ${TITLE_BILLING}    timeout=15s
+    ${style}=    Get Element Attribute        ${TITLE_BILLING}    style
+    Should Contain        ${style}    font-weight: 700
 
 TC-02: Verify KPI Section UI
     [Documentation]    Ensures exactly 4 KPI panels are displayed.
@@ -41,8 +41,8 @@ TC-03: Verify My Devices UI and Badges
     Page Should Contain Element    css:.badge.faulty-badge
 
 TC-04: Verify Notification and Call Logs
-    [Documentation]    Checks for the warning alert and call log table rows.
-    Element Should Be Visible    ${SECTION_NOTIF}
+    [Documentation]        Checks for the warning alert and call log table rows.
+    Element Should Be Visible        ${SECTION_NOTIF}
     Page Should Contain          ⚠️
     # Verify there are 5 call log entries as per the HTML
     ${rows}=    Get Element Count    css:.call-row
