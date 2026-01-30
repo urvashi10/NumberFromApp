@@ -1,0 +1,7 @@
+robotframework
+robotframework-seleniumlibrary
+PyYAML
+
+selenium
+chromedriver-autoinstaller
+webdriver-manager
