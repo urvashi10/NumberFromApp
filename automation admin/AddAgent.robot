@@ -34,6 +34,9 @@ ${ERROR_TEXT}           xpath://div[contains(@class, 'invalid-feedback')] | //di
 *** Keywords ***
 Login and Navigate to Dashboard
     [Documentation]    Configures Chrome to bypass 'Compromised Password' alerts and logs in.
+    # Setup WebDriver using webdriver-manager
+    ${driver_path}=    Evaluate    __import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install()
+    ${service}=    Evaluate    __import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(r'${driver_path}')
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     ${prefs}=    Create Dictionary
     ...    credentials_enable_service=${False}
@@ -41,8 +44,9 @@ Login and Navigate to Dashboard
     ...    profile.password_manager_leak_detection=${False}
     Call Method    ${options}    add_experimental_option    prefs    ${prefs}
     Call Method    ${options}    add_argument    --disable-notifications
+    Call Method    ${options}    add_argument    --disable-gpu
 
-    Open Browser    ${URL}    ${BROWSER}    options=${options}
+    Open Browser    ${URL}    ${BROWSER}    options=${options}    service=${service}
     Maximize Browser Window
     Set Selenium Implicit Wait    10s
 

@@ -1,21 +1,22 @@
+    Click Link    xpath://a[contains(text(), 'Master Agent Management')]
+    Wait Until Page Contains    Master Agent Management    timeout=15s
 *** Settings ***
-Resource         resource.robot
-
-Suite Setup      Run Keywords    Login Once As Admin    Navigate To Master Agent Management
-Test Teardown    Run Keyword If Test Failed    Capture Page Screenshot
-Suite Teardown   Safe Close Browser
+Library    SeleniumLibrary
 
 *** Variables ***
-${SEARCH_INPUT}      css:input[placeholder="Search By User Name"]
-${STATUS_DROPDOWN}   css:select.select-search
-${ADD_AGENT_BTN}     css:button.blue-btn
-${TABLE_ROWS}        css:table.table tbody tr
-${SUCCESS_BADGE}     css:span.success-badge
+${URL}          https://your-dashboard-url.com
+${BROWSER}      headlesschrome
+
+*** Test Cases ***
+Verify Dashboard Load
+    [Documentation]    Test to verify the Dashboard Agent loads correctly.
+    Setup Headless Browser
+    Page Should Contain    Dashboard
+    [Teardown]    Close Browser
 
 *** Keywords ***
-
-    Clear Element Text    ${SEARCH_INPUT}
-    Sleep           1s
-
-    Select From List By Label    ${STATUS_DROPDOWN}    Inactive
-    Sleep           1s
+Setup Headless Browser
+    # Using 'headlesschrome' is the shortcut for CI/CD environments
+    Open Browser    ${URL}    ${BROWSER}
+    Set Window Size    1920    1080
+    Maximize Browser Window

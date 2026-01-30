@@ -10,6 +10,9 @@ ${ADMIN_PASS}     Admin@12345
 *** Keywords ***
 Login Once As Admin
     [Documentation]    Logs into the admin panel and handles pop-ups.
+    # Setup WebDriver using webdriver-manager
+    ${driver_path}=    Evaluate    __import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install()
+    ${service}=    Evaluate    __import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(r'${driver_path}')
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     ${prefs}=    Create Dictionary
     ...    credentials_enable_service=${False}
@@ -21,7 +24,7 @@ Login Once As Admin
     # Helps prevent the browser from hanging on exit
     Call Method    ${options}    add_argument    --disable-gpu
 
-    Open Browser    ${LOGIN_URL}    ${BROWSER}    options=${options}
+    Open Browser    ${LOGIN_URL}    ${BROWSER}    options=${options}    service=${service}
     Maximize Browser Window
     Set Selenium Speed    0.2 seconds
 
@@ -31,11 +34,19 @@ Login Once As Admin
     Input Password   css:input[type='password']    ${ADMIN_PASS}
     Click Button     css:button[type='submit']
 
-    # Dismiss Pop-up via Reload
-    Sleep    3s
+    # Handle Chrome password manager alerts
+    Sleep    2s
+
+    # Try to close the password change alert if it appears
+    ${alert_present}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath://button[contains(text(), 'OK')]    timeout=5s
+    Run Keyword If    ${alert_present}    Click Button    xpath://button[contains(text(), 'OK')]
+    Sleep    1s
+
+    # Dismiss any remaining pop-ups via Reload
     Reload Page
     Sleep    1s
     Press Keys       None    ESC
+    Sleep    1s
 
     Wait Until Page Contains    Admin Dashboard    timeout=20s
 
